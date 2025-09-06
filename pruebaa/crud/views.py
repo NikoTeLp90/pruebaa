@@ -5,4 +5,4 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, T
 
 
 class HomeView(TemplateView):
-    template_name = 'crud/home.html'
+    template_name = 'home.html'
