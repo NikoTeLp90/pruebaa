@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-        "src": "pruenbaa/wsgi.py",
+        "src": "pruebaa/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb" }
         }
