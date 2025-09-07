@@ -1,0 +1,34 @@
+<h1>Lista de personas</h1>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th> Nombre </th>
+                <th> Apellido </th>
+                <th> Email </th>
+                <th> Avatar </th>
+                <th> Acciones </th>
+          
+            </tr>
+        </thead>
+        {% for persona in personas %}
+        <tr>
+            <td>{{persona.nombre}}</td>
+            <td>{{ persona.apellido }}</td>
+            <td>{{ persona.email }}</td>
+            <td>
+                <img src="https://www.gravatar.com/avatar/{{ persona.email }}?s=100&d=identicon" alt="Avatar de {{ persona.nombre }}">
+            </td>
+            <td>
+                <a href="">Ver</a>
+                <a href="{% url 'persona_update' persona.id %}">Editar</a>
+                <a href="{% url 'persona_delete' persona.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'persona_create' %}">Crear nueva persona</a>
+

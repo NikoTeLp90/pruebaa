@@ -1,0 +1,21 @@
+<h2>Iniciar sesión</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Entrar</button>
+</form>
+{% if form.non_field_errors %}
+    <ul style="color:red;">
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<h2>
+    Credenciales de prueba:
+    <br>
+    Email: a@a.com
+    <br>
+    Contraseña: 1234
+</h2>

@@ -1,0 +1,28 @@
+<h1>Lista de roles</h1>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th> Nombre </th>
+                <th> Acciones </th>
+          
+            </tr>
+        </thead>
+        {% for rol in roles %}
+        <tr>
+            <td>{{rol.nombre}}</td>
+
+            <td>
+                <a href="">Ver</a>
+                <a href="{% url 'rol_update' rol.id %}">Editar</a>
+                <a href="{% url 'rol_delete' rol.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'rol_create' %}">Crear nuevo rol</a>
+
+

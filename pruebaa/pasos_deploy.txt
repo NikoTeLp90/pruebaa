@@ -1,0 +1,51 @@
+Ver que la raíz este bien creada, por ejemplo:
+
+raizproyecto
+|
+|-.venv
+|-crud
+|-proyecto
+|-app
+|-.gitignore
+|-db
+|-manage.py 
+|-requirements.txt
+|-vercel.json 
+
+
+Dentro del vercel.json configurar:
+
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "proyecto/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "proyecto/wsgi.py"
+    }
+  ]
+}
+
+
+dentro del settings.py modificar:
+
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
+
+modificar el wsgi.py
+
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pruebaa.settings')
+
+application = get_wsgi_application()
+
+app = application
+

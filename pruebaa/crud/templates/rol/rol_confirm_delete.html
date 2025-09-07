@@ -1,0 +1,6 @@
+<h1>Elimnar rol?</h1>
+<form method="post">
+    {% csrf_token %}
+    <p>¿Estás seguro de que deseas eliminar el rol {{ object.nombre }}?</p>
+    <button type="submit">Confirmar</button>
+    <a href="{% url 'rol_list' %}">Cancelar</a>
