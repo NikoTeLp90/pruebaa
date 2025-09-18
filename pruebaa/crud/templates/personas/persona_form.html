@@ -1,6 +1,20 @@
+{% extends 'home.html' %}
+
+{% block content %}
 <h1>Crear persona</h1>
 
-<form method="post">
+<form method="post" id="personaForm">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    <button type="button" id="btnPreview" class="btn btn-primary">Vista previa</button>
+    <a href="{% url 'persona_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
+
+{% block js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        initConfirmationModal('personaForm');
+    });
+</script>
+{% endblock %}

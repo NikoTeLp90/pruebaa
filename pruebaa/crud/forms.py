@@ -7,6 +7,7 @@ class PersonaForm(forms.ModelForm):
         fields = ['nombre', 'apellido', 'email', 'rol', 'password']
         widgets = {
             'password': forms.PasswordInput(),
+            'email': forms.EmailInput(),
         }
 
 class RolForm(forms.ModelForm):
